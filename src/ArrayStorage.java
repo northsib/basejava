@@ -8,7 +8,7 @@ public class ArrayStorage {
     private int resumesCount = 0;
 
     void clear() {
-        Arrays.fill(resumes, 0, resumesCount - 1, null);
+        Arrays.fill(resumes, 0, resumesCount, null);
         resumesCount = 0;
     }
 
@@ -34,7 +34,7 @@ public class ArrayStorage {
     void delete(String uuid) {
         for (int i = 0; i < resumesCount; i++) {
             if (resumes[i].toString().equals(uuid)) {
-                System.arraycopy(resumes, i + 1, resumes, i, resumesCount - i - 1);
+                resumes[i] = resumes[resumesCount - 1];
                 resumesCount--;
                 resumes[resumesCount] = null;
             }
